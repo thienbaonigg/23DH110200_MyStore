@@ -1,0 +1,28 @@
+﻿@model MyStore.Models.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="bg-success">Cập nhật danh mục</h2>
+
+
+@using (Html.BeginForm())
+{
+   @* sẽ được truyền vào giữa trang partial view vào trang cha *@
+    @Html.AntiForgeryToken()
+    
+    @*form con sẽ đc nhúng vào form cha là Edit.cshtml và Create.cshtml*@
+<div class="form-horizontal">
+   
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CategoryID)
+
+    @*Nhúng partial view vào form cha*@
+    @Html.Partial("PVCreateEditCatergory", Model)
+</div>
+}
+
+
