@@ -7,18 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyStore.Models;
+using MyStore.Models.ViewModel;
 
 namespace MyStore.Areas.admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private MyStoreEntities db = new MyStoreEntities();
 
         // GET: admin/Products
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var model = new ProductSearchVM();
+            var products = db.Products.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products=products.Where(p  => 
+                p.SearchName .Contains(searchTerm)||
+                p.SearchDescription .Contains(searchTerm)) ||
+                p.Cateory.CategoryName.Contains(searchTerm) ;
+            }
+            model.Products = products.ToList();
+            return View(model);
         }
 
         // GET: admin/Products/Details/5

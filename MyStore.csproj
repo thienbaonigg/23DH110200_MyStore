@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\ProductSeatchVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +247,9 @@
     <Content Include="Areas\admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Products\Index.cshtml" />
     <Content Include="Areas\admin\Views\Products\PVCreateEditProduct.cshtml" />
+    <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\admin\Views\Products\PVListProduct.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -274,9 +279,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Areas\admin\Views\Catergories\" />
     <Folder Include="Areas\admin\Views\Default\" />
-    <Folder Include="Areas\admin\Views\Product\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

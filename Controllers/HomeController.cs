@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyStore.Models;
+using MyStore.Models.ViewModel;
+using PagedList;
 
 namespace MyStore.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private MyStoreEntities db = new MyStoreEntities();   
+        public ActionResult Index( string searchTerm, int? page)
         {
+            var model = new HomeProductVM();
             return View();
         }
 

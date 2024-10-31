@@ -1,0 +1,32 @@
+﻿@model MyStore.Models.ViewModel.ProductSeatchVM
+    <head>
+        <style>
+            img {
+                height: 150px;
+                max-width:150px;
+            }
+        </style>
+    </head>
+@if (Model.Products != null && Model.Products.Any())
+            {
+                <h2 class="bg-success">DANH SACH SAN PHAM</h2>
+            <table class=" table bg-info table-responsive">
+                <thead>
+                    <tr>
+                        <th class=" bg-success col-md-2"> Hinh anh</th>
+                        <th class=" bg-success col-md-3"> Ten san pham</th>
+                        <th class=" bg-success col-md-1"> Don gia</th>
+                        <th class=" bg-success col-md-2"> Danh muc</th>
+                        <th class=" bg-success col-md-4"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td
+                    </tr>
+                }
+                </tbody>
+            </table>
+                }
