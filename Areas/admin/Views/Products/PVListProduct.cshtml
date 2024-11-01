@@ -1,4 +1,4 @@
-﻿@model MyStore.Models.ViewModel.ProductSeatchVM
+﻿@model MyStore.Models.ViewModel.ProductSearchVM
     <head>
         <style>
             img {
@@ -22,11 +22,34 @@
                 </thead>
                 <tbody>
                     @foreach (var product in Model.Products)
-                {
+                    {
                     <tr>
-                        <td
+                        <td> <img scr="@Html.DisplayFor(modelItem => product.ProductImage)" /></td>
+                        <td> @Html.DisplayFor(modelItem => product.ProductName) /></td>
+                        <td> @Html.DisplayFor(modelItem => product.ProductPrice) /></td>
+                        <td> @Html.DisplayFor(modelItem => product.Category.CategoryName) /></td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { Id = product.ProductID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Chi tiet", "Details", new { Id = product.ProductID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Xoa", "Delete", new { Id = product.ProductID }, new { @class = "btn btn-primary" })
+                        </td>
                     </tr>
+
+                   
                 }
                 </tbody>
             </table>
+            <div class="pagination-container">
+                @Html.PagedListPager(Model.Products, Page => Url.Action("Index", new {page, searchTerm=Model.SearchTerm,
+           minPrice=Model.MinPrice, maxPrice=Model.MaxPrice,sortOrder= Model.SortOrder}))
+            </div>
                 }
+else
+            {
+                <p>Khong tim duoc san pham nao phu hop</p>
+            }
+<div class="form-group">
+    <div class="col-md-offset-8 col-md-4">
+        @Html.ActionLink("Them moi", "Create", null, new {@class="btn btn-primary"})
+    </div>
+</div>
