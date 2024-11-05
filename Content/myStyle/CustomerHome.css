@@ -1,0 +1,51 @@
+.banner {
+    background-image: url();
+    background-size:cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    align-items: center;
+    min-height: 300px;
+}
+.banner-container {
+    text-align:center;
+    color:white;
+}
+.banner-container h2 {
+    font-size:2.5rem;
+}
+.banner-container p{
+    font-size:2rem;
+}
+.btnBanner {
+    display:inline-block;
+    padding: 5px 20px;
+    background-color: darkorange;
+    color:white;
+    text-decoration: none;
+    font-weight:bold;
+}
+.search-container{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+.search-input {
+    width:500px;
+    padding:10px;
+    border:1px solid #808080;
+    border-radius: 5px 0 0 5px;
+}
+.search-button{
+    padding:10px 20px;
+    background-color: brown;
+    border:none;
+    border-radius:0 5px 5px 0;
+    cursor: pointer;
+}
+.search-button:hover{
+    background-color:#555;
+}
+.searchProd{
+    text-align:center;
+}

@@ -1,7 +1,36 @@
-﻿
-@{
-    ViewBag.Title = "PVFeatureProduct";
-}
+﻿@model MyStore.Models.ViewModel.HomeProductVM
 
-<h2>PVFeatureProduct</h2>
 
+<link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css"/>
+
+@if (Model.FeaturedProducts !=null && Model.FeaturedProducts.Any())
+            {
+                <section class="container-fluid featureProd">
+                    <h2> San pham noi bat</h2>
+                    <div class=" feature-container">
+                        @foreach (var product in Model.FeaturedProducts)
+                        {
+                            <div class=" fproduct-item">
+                                <div>
+                                    <a href="@Url.Action("ProductDetails", "Home", new { id = product.ProductID }
+                                <img src="@product.ProductImage" />
+                                    </a>
+                                </div>
+                            </div>
+                        <div>
+                            <p class="prodPrice">
+                                @product.ProductPrice
+                            </p>
+                            <p class=" prodCate">
+                                @Html.DisplayFor(modelItem => product.ProductName)</p>
+                            <p class=" prodName">
+                                @Html.DisplayFor(modelItem => product.Category.CategoryName) </p>
+                            <p class=" prodSale">
+                               Da ban:&nbsp; @Html.DisplayFor(modelItem => product.OrderDetails.Count) </p>
+                            </div>
+                        </div>
+                            }
+                        </div>
+                </section>
+<hr/>
+            }
