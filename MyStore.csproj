@@ -134,7 +134,9 @@
     <Compile Include="Areas\admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\Cart.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,9 +145,6 @@
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>MyStoreModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSreplication_options.cs">
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyStoreModel1.Context.cs">
@@ -172,18 +171,6 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\spt_fallback_db.cs">
-      <DependentUpon>MyStoreModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spt_fallback_dev.cs">
-      <DependentUpon>MyStoreModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spt_fallback_usg.cs">
-      <DependentUpon>MyStoreModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\spt_monitor.cs">
-      <DependentUpon>MyStoreModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
@@ -193,6 +180,10 @@
     <Compile Include="Models\ViewModel\HomeProductVM.cs" />
     <Compile Include="Models\ViewModel\Cart.cs" />
     <Compile Include="Models\ViewModel\ProductDetailsVM.cs" />
+    <Compile Include="Models\ViewModel\CheckoutVM.cs" />
+    <Compile Include="Models\ViewModel\RegisterVM.cs" />
+    <Compile Include="Models\ViewModel\LoginVM.cs" />
+    <Compile Include="Models\ViewModel\PersonalMenu.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -290,12 +281,15 @@
     <Content Include="Views\Payment\Confirmation.cshtml" />
     <Content Include="Views\Payment\Checkout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Cart\Register.cshtml" />
+    <Content Include="Views\Cart\ChangePassword.cshtml" />
+    <Content Include="Views\Cart\Login.cshtml" />
+    <Content Include="Views\Cart\ProfileInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Areas\admin\Data\" />
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

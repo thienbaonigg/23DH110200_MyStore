@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace MyStore.Models.ViewModel
 {
-    public class ProductDetailsVM : Controller
+    public class CartItem
     {
-        // GET: ProductDetailsVM
-        public ActionResult Index()
-        {
-            return View();
-        }
+       public int ProductID { get; set; }
+        public string Productname { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public string ProductImage { get; set; }
+        public decimal TotalPrice => Quantity * UnitPrice;
     }
 }
