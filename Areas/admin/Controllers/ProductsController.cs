@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using MyStore.Models;
 using MyStore.Models.ViewModel;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MyStore.Areas.admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private MyStoreEntities db = new MyStoreEntities();
+        private masterEntities db = new masterEntities();
 
         // GET: admin/Products
         public ActionResult Index(string searchTerm, decimal? minPrice, 
@@ -26,9 +28,9 @@ namespace MyStore.Areas.admin.Controllers
             {
                 model.SearchTerm = searchTerm;
                 products=products.Where(p  => 
-                p.SearchName .Contains(searchTerm)||
-                p.SearchDescription .Contains(searchTerm) ||
-                p.Cateory.CategoryName.Contains(searchTerm)) ;
+                p.ProductName .Contains(searchTerm)||
+                p.ProductDecription .Contains(searchTerm) ||
+                p.Category.CategoryName.Contains(searchTerm)) ;
             }
 
             if (minPrice.HasValue)
@@ -55,10 +57,11 @@ namespace MyStore.Areas.admin.Controllers
             }
            model.SortOrder = sortOrder;
 
-            int pageNumber = pageNumber ?? 1;
+            int pageNumber = page ?? 1;
             int pageSize = 2;
 
-            model.Products = products.ToPagedList(pageNumber, pageSize);
+            model.Products = (List<Product>)products.ToPagedList(pageNumber, pageSize);
+            return View(model);
         }
 
         // GET: admin/Products/Details/5

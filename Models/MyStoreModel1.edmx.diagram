@@ -11,11 +11,6 @@
         <EntityTypeShape EntityType="masterModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="masterModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="masterModel.User" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.MSreplication_options" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.spt_fallback_db" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.spt_fallback_dev" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.spt_fallback_usg" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.spt_monitor" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="masterModel.FK_Pro_Category" ManuallyRouted="false" />
         <AssociationConnector Association="masterModel.FK__Order__CustomerI__2F2FFC0C" ManuallyRouted="false" />
         <AssociationConnector Association="masterModel.FK_User_Customer" ManuallyRouted="false" />

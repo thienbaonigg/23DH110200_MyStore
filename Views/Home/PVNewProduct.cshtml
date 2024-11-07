@@ -10,7 +10,7 @@
         <div class=" list-container">
             @foreach (var product in Model.NewProducts)
             {
-                <li class=" lproduct-item">
+                <div class=" lproduct-item">
                     <div>
                         <a href="@Url.Action("ProductDetails", "Home", new { id = product.ProductID })">
                            <img src="@product.ProductImage" />
@@ -23,16 +23,17 @@
                             Da ban:&nbsp; @product.OrderDetails.Count
                         </p>
                     </div>
-                </li>
+                </div>
+
                 }
-                </ul>
+            </div>
         </section>
+        
 
         <div class=" pagination-container">
             @Html.PagedListPager(Model.NewProducts, Page => Url.Action("Index", new
         {
-            page,
-                searchTerm = Model.SearchTerm
+            Page, searchTerm = Model.SearchTerm
             }))
         </div>
         }

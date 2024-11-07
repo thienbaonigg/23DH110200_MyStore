@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MyStore.Models.ViewModel
 {
-    public class ProductSearchVM 
+    public class CheckoutVM
     {
        public string SearchTerm { get; set; }
         public decimal? MinPrice { get; set; }
@@ -15,6 +15,6 @@ namespace MyStore.Models.ViewModel
             public string SortOrder { get; set; }  
         public int PageNumber { get; set; }
         public int PageSize { get; set; } = 10;
-        public PagedList.IPagedList<Product>Products { get; set; }
+        public PagedList.IPagedList<Product>products { get; set; }
     }
 }

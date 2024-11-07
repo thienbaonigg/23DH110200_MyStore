@@ -11,7 +11,7 @@ namespace MyStore.Controllers
 {
     public class HomeController : Controller
     {
-        private MyStoreEntities db = new MyStoreEntities();   
+        private masterEntities db = new masterEntities();   
         public ActionResult Index( string searchTerm, int? page)
         {
             var model = new HomeProductVM();
@@ -20,13 +20,13 @@ namespace MyStore.Controllers
             {
                 model.SearchTerm = searchTerm;
                 products = products.Where( p => p.ProductName.Contains(searchTerm) ||
-                                    p.ProductDescription.Contains(searchTerm) ||
+                                    p.ProductDecription.Contains(searchTerm) ||
                                     p.Category.CategoryName.Contains(searchTerm));
             }
 
             int pageNumber = page ?? 1;
             int pageSize = 6;
-            model.FeatureProducts=products.OrderByDescending(p => p.ProductDetails.Count()).Take(10).ToList();
+            model.FeaturedProducts=products.OrderByDescending(p => p.OrderDetails.Count()).Take(10).ToList();
        
         model.NewProducts=products.OrderBy(p => p.OrderDetails.Count()).Take(20).ToPagedList(pageNumber, pageSize);
         return View(model);

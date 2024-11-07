@@ -19,11 +19,11 @@ namespace MyStore.Models.ViewModel
             {
                 items.Add(new CartItem
                 {
-                    PriductID = productId,
-                    productImage = productImage,
-                    productName = productName,
+                    ProductID = productId,
+                    ProductImage = productImage,
+                    Productname = productName,
                     UnitPrice = unitPrice,
-                    quantity = quantity
+                    Quantity = quantity
                 });
             }
             else
@@ -43,7 +43,7 @@ namespace MyStore.Models.ViewModel
         { items.Clear(); }
         public void UpdateQuantity(int productId, int quantity)
         {
-            var item = items.FirstOrDefault(i => i.ProductId == productId);
+            var item = items.FirstOrDefault(i => i.ProductID == productId);
             if (item != null)
             {
                 item.Quantity = quantity;
