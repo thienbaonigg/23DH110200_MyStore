@@ -1,0 +1,94 @@
+﻿@model MyStore.Models.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = " DANG KY TAI KHOAN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .accountbtn {
+        width: 275px;
+        height: 40px;
+        border: 1px solid #808080;
+        margin: 5px;
+        align-items: center;
+    }
+</style>
+<div>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <h2 class="col-md-6"> Dang ky tai khoan</h2>
+
+            </div>
+            @*Ten dang nhap*@
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "form-control" })
+
+                </div>
+            </div>
+            @*Doi mat khau*@
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.CustomerName, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerName)
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.CustomerPhone, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerPhone)
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.CustomerEmail, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerEmail)
+                </div>
+            </div>
+            <div class=" form-goup">
+                @Html.LabelFor(model => model.CustomerAddress, new { @class = "control-label col-md-2" })
+                <div class=" col-md-4">
+                    @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CustomerAddress)
+                </div>
+
+            </div>
+            <div class=" form-group"></div>
+            <div class=" col-md-offset-2 col-md-4"></div>
+            <input type="submit" value=" Dang ky " class=" btn btn-accountbtn" />br/>
+            <p>Ban da co tai khoan? <a href="@Url.Action("login", "Account", null)"></a></p>
+        </div>
+        
+    }
+    </div>
