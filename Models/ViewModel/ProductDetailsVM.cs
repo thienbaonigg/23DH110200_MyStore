@@ -14,7 +14,7 @@ namespace MyStore.Models.ViewModel
         public decimal estimatedValue => quantity * product.ProductPrice;
         public int PageNumber { get; set; }
         public int PageSize { get; set; } = 3;
-        public PagedList.IPagedList<Product> RelatedProducts { get; set; }
+        public List<Product> RelatedProducts { get; set; }
         public PagedList.IPagedList<Product> TopProducts { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 @if (Model.TopProducts != null && Model.TopProducts.Any())
 {
     <section class="container-fluid listProduct">
-        <h4 style=" font-weight:bold;"> San pham ban chay</h4>
+        <h4 style=" font-weight:bold;"> Sản phẩm bán chạy</h4>
         <ul class=" list-container">
             @foreach (var product in Model.TopProducts)
             {
@@ -29,7 +29,8 @@
             @Html.PagedListPager(Model.TopProducts, Page => Url.Action("ProductDetails", new
        {
            id = Model.product.ProductID,
-           quantity = Model.quantity, Page
+           quantity = Model.quantity, 
+           Page
            
 
        }))

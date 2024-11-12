@@ -9,62 +9,67 @@ using System.Web.Mvc;
 using MyStore.Models;
 using MyStore.Models.ViewModel;
 using PagedList;
-using PagedList.Mvc;
 
-namespace MyStore.Areas.admin.Controllers
+namespace _23DH112541_MyStore.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
     {
         private masterEntities db = new masterEntities();
 
-        // GET: admin/Products
-        public ActionResult Index(string searchTerm, decimal? minPrice, 
-            decimal? maxPrice, string sortOrder,int? page)
+        // GET: Admin/Products
+        public ActionResult Index(string searchTerm, decimal? minPrice, decimal? maxPrice, string sortOrder, int? page)
         {
             var model = new ProductSearchVM();
             var products = db.Products.AsQueryable();
-
+            // Tìm kiếm sản phẩm dựa trên từ khóa
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 model.SearchTerm = searchTerm;
-                products=products.Where(p  => 
-                p.ProductName .Contains(searchTerm)||
-                p.ProductDecription .Contains(searchTerm) ||
-                p.Category.CategoryName.Contains(searchTerm)) ;
+                products = products.Where(p => p.ProductName.Contains(searchTerm) ||
+                    p.ProductDecription.Contains(searchTerm) ||
+                    p.Category.CategoryName.Contains(searchTerm));
             }
-
+            // Tìm kiếm sản phẩm dựa trên giá tối thiểu
             if (minPrice.HasValue)
             {
-                products= products.Where(p =>p.ProductPrice<=minPrice.Value);
+                model.MinPrice = minPrice.Value;
+                products = products.Where(p => p.ProductPrice >= minPrice.Value);
             }
+            // Tìm kiếm sản phẩm dựa trên giá tối đa
             if (maxPrice.HasValue)
             {
+                model.MaxPrice = maxPrice.Value;
                 products = products.Where(p => p.ProductPrice <= maxPrice.Value);
             }
-            switch(sortOrder)
+            //Áp dụng sắp xếp dựa trên lựa chọn của người dùng
+            switch (sortOrder)
             {
-                case "name_asc": products=products.OrderBy(p => p.ProductName);
+                case "name_asc": products = products.OrderBy(p => p.ProductName);
                     break;
-                case "name_desc": products = products.OrderByDescending(p => p.ProductName);
+                case "name_desc":products = products.OrderByDescending(p => p.ProductName);
                     break;
-                case "price_asc": products = products.OrderBy(p => p.ProductPrice);
+                case "price_asc":products = products.OrderBy(p => p.ProductPrice);
                     break;
-                case "price_desc": products = products.OrderByDescending(p => p.ProductPrice);
+                case "price_desc":products = products.OrderByDescending(p => p.ProductPrice);
                     break;
-                default:
+                default: // Mặc định sắp xếp theo tên
                     products = products.OrderBy(p => p.ProductName);
                     break;
             }
-           model.SortOrder = sortOrder;
+            model.SortOrder = sortOrder;
 
-            int pageNumber = page ?? 1;
-            int pageSize = 2;
+            // Đoạn code liên quan tới phân trang
+            // Lấy số trang hiện tại (mặc định là trang 1 nếu không có giá trị)
 
-            model.Products = (List<Product>)products.ToPagedList(pageNumber, pageSize);
+
+            // đóng câu lệnh này, sử dụng ToPagedList để lấy danh sách phân trang
+            //model.Products = products.ToList();
+
+
             return View(model);
         }
 
-        // GET: admin/Products/Details/5
+        // GET: Admin/Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -79,19 +84,19 @@ namespace MyStore.Areas.admin.Controllers
             return View(product);
         }
 
-        // GET: admin/Products/Create
+        // GET: Admin/Products/Create
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             return View();
         }
 
-        // POST: admin/Products/Create
+        // POST: Admin/Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,CategoryID,ProductName,ProductDecription,ProductPrice,ProductImage")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,CategoryID,ProductName,ProductDescription,ProductPrice,ProductImage")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +109,7 @@ namespace MyStore.Areas.admin.Controllers
             return View(product);
         }
 
-        // GET: admin/Products/Edit/5
+        // GET: Admin/Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,12 +125,12 @@ namespace MyStore.Areas.admin.Controllers
             return View(product);
         }
 
-        // POST: admin/Products/Edit/5
+        // POST: Admin/Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,CategoryID,ProductName,ProductDecription,ProductPrice,ProductImage")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,CategoryID,ProductName,ProductDescription,ProductPrice,ProductImage")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -137,7 +142,7 @@ namespace MyStore.Areas.admin.Controllers
             return View(product);
         }
 
-        // GET: admin/Products/Delete/5
+        // GET: Admin/Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -152,7 +157,7 @@ namespace MyStore.Areas.admin.Controllers
             return View(product);
         }
 
-        // POST: admin/Products/Delete/5
+        // POST: Admin/Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

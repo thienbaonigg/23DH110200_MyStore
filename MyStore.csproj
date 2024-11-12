@@ -133,7 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
@@ -183,14 +182,12 @@
     </Compile>
     <Compile Include="Models\ViewModel\CartItem.cs" />
     <Compile Include="Models\ViewModel\CartService.cs" />
-    <Compile Include="Models\ViewModel\PayPalService.cs" />
     <Compile Include="Models\ViewModel\HomeProductVM.cs" />
     <Compile Include="Models\ViewModel\Cart.cs" />
     <Compile Include="Models\ViewModel\ProductDetailsVM.cs" />
     <Compile Include="Models\ViewModel\CheckoutVM.cs" />
     <Compile Include="Models\ViewModel\RegisterVM.cs" />
     <Compile Include="Models\ViewModel\LoginVM.cs" />
-    <Compile Include="Models\ViewModel\PersonalMenu.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -248,15 +245,16 @@
     <Content Include="Areas\admin\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Categories\Index.cshtml" />
     <Content Include="Areas\admin\Views\Categories\PVCreateEditCatergory.cshtml" />
-    <Content Include="Areas\admin\Views\Product\Create.cshtml" />
-    <Content Include="Areas\admin\Views\Product\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\Product\Details.cshtml" />
-    <Content Include="Areas\admin\Views\Product\Edit.cshtml" />
-    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\admin\Views\Product\PVCreateEditProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Products\PVCreateEditProduct.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\admin\Views\Product\PVListProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Products\PVProductList.cshtml" />
+    <Content Include="Areas\admin\Views\Products\PVProdInfo.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -281,8 +279,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ProductDetails.cshtml" />
-    <Content Include="Views\Home\PVFeatureProduct.cshtml" />
-    <Content Include="Views\Home\PVNewProduct.cshtml" />
+    <Content Include="Views\Home\_PVFeatureProduct.cshtml" />
+    <Content Include="Views\Home\_PVNewProduct.cshtml" />
     <Content Include="Views\Home\PVRelatedProduct.cshtml" />
     <Content Include="Views\Home\PVTopProduct.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />

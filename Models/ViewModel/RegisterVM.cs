@@ -28,12 +28,14 @@ namespace MyStore.Models.ViewModel
         public string CustomerName { get; set; }
 
         [Required]
+       
+        [Display(Name = "So dien thoai")] 
         [DataType(DataType.PhoneNumber)]
-        [Display(Name = "So dien thoai")]
         public string CustomerPhone { get; set; }
         [Required]
-        [DataType(DataType.EmailAddress)]
+        
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
         [Required]
         [Display(Name = "Dia chi")]

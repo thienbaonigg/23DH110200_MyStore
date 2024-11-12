@@ -17,7 +17,7 @@ namespace MyStore.Controllers
         }
         public ActionResult Index()
         {
-            var cart = GetCartService();
+            var cart = GetCartService().GetCart();
             return View(cart);
         }
         public ActionResult AddToCart(int id, int quantity = 1)
