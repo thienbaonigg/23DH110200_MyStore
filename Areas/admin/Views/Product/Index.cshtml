@@ -43,31 +43,43 @@ type = "number",
         <div class="form-group order-container">
             Sap xep theo:
             @Html.ActionLink("Ten tang dan", "Index", "Products",
-           new{sortOrder = "name_asc",
+           new
+                {
+                    sortOrder = "name_asc",
            searchTerm = Model.SearchTerm,
            minPrice = Model.MinPrice,
-           maxPrice = Model.MaxPrice },
+           maxPrice = Model.MaxPrice
+                },
            null) |
             @Html.ActionLink("Ten giam dan", "Index", "Products",
-           new{ sortOrder = "name_desc",
+           new
+                {
+                    sortOrder = "name_desc",
             searchTerm = Model.SearchTerm,
             minPrice = Model.MinPrice,
-            maxPrice = Model.MaxPrice},
+            maxPrice = Model.MaxPrice
+                },
             null) |
             @Html.ActionLink("Gia tang dan", "Index", "Products",
-            new{ sortOrder = "price_asc",
+            new
+                 {
+                     sortOrder = "price_asc",
              searchTerm = Model.SearchTerm,
              minPrice = Model.MinPrice,
-             maxPrice = Model.MaxPrice},
+             maxPrice = Model.MaxPrice
+                 },
              null) |
             @Html.ActionLink("Gia giam dan", "Index", "Products",
-             new{sortOrder = "price_desc",
+             new
+                  {
+                      sortOrder = "price_desc",
               searchTerm = Model.SearchTerm,
               minPrice = Model.MinPrice,
-              maxPrice = Model.MaxPrice},
+              maxPrice = Model.MaxPrice
+                  },
               null) |
         </div>
     }
-    @Html.Partial("ProductListPV", Model)
+    @Html.Partial("PVListProduct", Model)
 </body>
 </html>

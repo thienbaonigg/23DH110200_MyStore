@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using MyStore.Models;
 using MyStore.Models.ViewModel;
 using PagedList;
+using System.Web.UI;
+
 
 namespace MyStore.Controllers
 {

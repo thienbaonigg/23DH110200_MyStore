@@ -1,7 +1,7 @@
 ﻿@model MyStore.Models.ViewModel.RegisterVM
 
 @{
-    ViewBag.Title = " DANG KY TAI KHOAN";
+    ViewBag.Title = "ĐĂNG KÝ TÀI KHOẢN";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
@@ -21,7 +21,7 @@
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <h2 class="col-md-6"> Dang ky tai khoan</h2>
+                <h2 class="col-md-6">Đăng ký tài khoản</h2>
 
             </div>
             @*Ten dang nhap*@
@@ -29,35 +29,28 @@
                 @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
                 <div class=" col-md-4">
                     @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
 
                 </div>
             </div>
             @*Doi mat khau*@
             <div class=" form-goup">
-                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
-                <div class=" col-md-4">
-                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "form-control" })
-                </div>
-            </div>
-            <div class=" form-goup">
                 @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
                 <div class=" col-md-4">
                     @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class=" form-goup">
                 @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
                 <div class=" col-md-4">
                     @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
                 </div>
             </div>
             <div class=" form-goup">
                 @Html.LabelFor(model => model.CustomerName, new { @class = "control-label col-md-2" })
-                <div class=" col-md-4">
+                <div class=" col-md-6">
                     @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.CustomerName)
                 </div>
@@ -84,11 +77,13 @@
                 </div>
 
             </div>
-            <div class=" form-group"></div>
-            <div class=" col-md-offset-2 col-md-4"></div>
-            <input type="submit" value=" Dang ky " class=" btn btn-accountbtn" />br/>
-            <p>Ban da co tai khoan? <a href="@Url.Action("login", "Account", null)"></a></p>
+            <div class=" form-group">
+            <div class=" col-md-offset-2 col-md-4">
+            <input type="submit" value=" Đăng ký " class=" btn btn-info accountbtn" /><br/>
+            <p>Bạn đã có tài khoản? <a href="@Url.Action("login", "Account", null)"/>Đăng nhập</p>
         </div>
-        
+        </div>
+            </div>
+     
     }
     </div>

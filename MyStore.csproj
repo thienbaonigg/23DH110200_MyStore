@@ -140,6 +140,7 @@
     <Compile Include="Areas\admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -147,7 +148,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>MyStoreModel1.tt</DependentUpon>
     </Compile>
@@ -248,15 +248,15 @@
     <Content Include="Areas\admin\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Categories\Index.cshtml" />
     <Content Include="Areas\admin\Views\Categories\PVCreateEditCatergory.cshtml" />
-    <Content Include="Areas\admin\Views\Products\Create.cshtml" />
-    <Content Include="Areas\admin\Views\Products\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\Products\Details.cshtml" />
-    <Content Include="Areas\admin\Views\Products\Edit.cshtml" />
-    <Content Include="Areas\admin\Views\Products\Index.cshtml" />
-    <Content Include="Areas\admin\Views\Products\PVCreateEditProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Product\PVCreateEditProduct.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\admin\Views\Products\PVListProduct.cshtml" />
+    <Content Include="Areas\admin\Views\Product\PVListProduct.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

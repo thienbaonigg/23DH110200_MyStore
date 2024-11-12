@@ -1,51 +1,163 @@
 .banner {
     background-image: url();
-    background-size:cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-items: center;
     min-height: 300px;
 }
+
 .banner-container {
-    text-align:center;
-    color:white;
+    text-align: center;
+    color: white;
 }
-.banner-container h2 {
-    font-size:2.5rem;
-}
-.banner-container p{
-    font-size:2rem;
-}
+
+    .banner-container h2 {
+        font-size: 2.5rem;
+    }
+
+    .banner-container p {
+        font-size: 2rem;
+    }
+
 .btnBanner {
-    display:inline-block;
+    display: inline-block;
     padding: 5px 20px;
     background-color: darkorange;
-    color:white;
+    color: white;
     text-decoration: none;
-    font-weight:bold;
+    font-weight: bold;
 }
-.search-container{
-    display:flex;
+
+.search-container {
+    display: flex;
     justify-content: center;
     align-content: center;
 }
+
 .search-input {
-    width:500px;
-    padding:10px;
-    border:1px solid #808080;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #808080;
     border-radius: 5px 0 0 5px;
 }
-.search-button{
-    padding:10px 20px;
+
+.search-button {
+    padding: 10px 20px;
     background-color: brown;
-    border:none;
-    border-radius:0 5px 5px 0;
+    border: none;
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
-.search-button:hover{
-    background-color:#555;
+
+    .search-button:hover {
+        background-color: #555;
+    }
+
+.searchProd {
+    text-align: center;
 }
-.searchProd{
-    text-align:center;
+
+#searchProd h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: brown;
+}
+
+featureProd {
+    text-align: left;
+}
+
+.feature-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+
+.fproduct-item { /*hien thi dang slider*/
+    width: 166px;
+    max-height: 400px;
+    margin: 10px;
+    gap: 5px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.fproduct-iten ing {
+    padding: 5px;
+    max-height: 160px;
+    vertical-align: central;
+    background-color: transparent;
+}
+/*Style c?a LIST PRODUCT */
+.listProduct {
+    text-align: left;
+}
+
+.list-container {
+    List-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.lproduct-item {
+    max-height: 500px;
+}
+
+.lproduct-iten ing {
+    /*padding: 5px;*/
+    max-height: 120px; /* ?i?u ch?nh theo ?? r?ng màn hình */
+}
+
+.detailproduct-item {
+    width: 156px;
+    max-height: 400px;
+    margin: 10px;
+    gap: 5px;
+    flex: 0 8 auto;
+    scroll-snap-align: start;
+}
+
+.detailproduct-iten ing {
+    /* padding: 5px;*/
+    max-height: 180px;
+}
+/*các thu?c tính chung c?a FEATURE và NEW s?n ph?m*/
+.fproduct-item, lproduct-item, detailproduct-item {
+    border: 1px groove #808089;
+    border-radius: 10px;
+}
+
+.featureProd h2, listProduct h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: brown;
+    text-align: center;
+}
+.prodPrice {
+    font-size: large;
+    color: blue;
+    font-weight: bolder;
+    padding: 10px 5px 0px 5px;
+}
+.prodNane {
+    color: black;
+    font-weight: bold;
+    padding: 6px 5px 8px 5px;
+}
+    .prodCate
+{
+    color: black;
+    padding: 6px 5px 8px 5px;
+}
+
+.prodSale {
+    font-size: small;
+    color: dimgrey;
+    padding: 6px 5px 8px 5px;
 }

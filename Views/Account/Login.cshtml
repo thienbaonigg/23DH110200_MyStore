@@ -1,33 +1,50 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model MyStore.Models.ViewModel.LoginVM
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .accountbtn {
+        width: 275px;
+        height: 40px;
+        border: 1px solid #808080;
+        margin: 5px;
+        align-items: center;
+    }
+</style>
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<!DOCTYPE html>
+<div>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <h2 class="col-md-6" style="text-align:center;">Đăng nhập</h2>
     </div>
-</main>
+    @* Tên đăng nhập *@
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+    </div>
+        <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" }) 
+        @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        </div>
+
+        <div class="form-group">
+        <div class="col-md-offset-2 col-md-4">
+        <input type="submit" value="Dăng nhập" class="btn btn-info accountbtn" /><br />
+        <p>Bạn Chưa Có Tài khoản? <a href="@Url.Action("Register", "Account", null)" />Đăng ký ngay</p>
+        </div>
+        </div>
+    }
+    </div>
