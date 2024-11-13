@@ -41,7 +41,7 @@ namespace MyStore.Controllers
                     CartItems = cart, //Lấy danh sách các sản phẩm trong giỏ hàng
                     TotalAmount = cart.Sum(item => item.TotalPrice), //Tổng giá trị của các mặt hàng trong giỏ 
                     OrderDate = DateTime.Now, //Mặc định lấy bằng thời điểm đặt hàng 
-                    ShippingAddress = customer.CustomerAddress, // Lấy địa chỉ mặc định từ bảng Customer 
+                    ShippingDelivery = customer.CustomerAddress, // Lấy địa chỉ mặc định từ bảng Customer 
                     CustomerID = customer.CustomerID,// Lấy mã khách hàng từ bảng Customer 
                     Username = customer.Username // Lấy tên đăng nhập từ bàng Customer 
                 };
@@ -90,7 +90,7 @@ namespace MyStore.Controllers
                     PaymentStatus = paymentStatus,
                     PaymentMethod = model.PaymentMethod,
                     DeliveryMethod = model.ShippingMethod,
-                    ShippingAddress = model.ShippingAddress,
+                    ShippingDelivery = model.ShippingDelivery,
                     OrderDetails = cart.Select(item => new OrderDetail
                     {
                         ProductID = item.ProductID,

@@ -1,51 +1,124 @@
-.banner {
-    background-image: url();
+﻿
+#banner {
+    background-image: url("../Content/images/banner.jfif");
     background-size: cover;
+    background-position: center;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    align-items: center;
-    min-height: 300px;
 }
 
-.banner-container {
+.banner-content {
     text-align: center;
-    color: white;
+    color: black;
 }
 
-    .banner-container h2 {
+    .banner-content h2 {
         font-size: 2.5rem;
     }
 
-    .banner-container p {
-        font-size: 2rem;
+    .banner-content p {
+        font-size: 1.8rem;
     }
 
-.btnBanner {
-    display: inline-block;
-    padding: 5px 20px;
-    background-color: darkorange;
-    color: white;
-    text-decoration: none;
+.featureProd {
+    text-align: left;
+}
+
+    .featureProd h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+.feature-container {
+    display: flex;
+    overflow-x: auto; /*cho phép cuộn ngang*/
+    scroll-snap-type: x mandatory;
+}
+
+.prodContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.fproduct-item { /*hiển thị dạng slider*/
+    width: 200px; /*điều chỉnh theo độ rộng màn hình*/
+    max-height: 400px;
+    margin: 10px;
+    gap: 5px; /*khoảng cách giữa 2 item*/
+    flex: 0 0 auto; /*để các sản phẩm không co giãn*/
+    scroll-snap-align: start; /*để các sản phẩm dừng lại ở đầu khi cuộn*/
+}
+
+    .fproduct-item img {
+        padding: 5px;
+        max-height: 160px;
+        vertical-align: central;
+        background-color: transparent;
+    }
+
+.product-item h3 {
+    font-size: 14px;
+    color: black;
+    margin: 10px 0px;
+}
+
+.product-item img {
+    max-width: 150px;
+    height: auto;
+}
+
+.prodPrice {
+    font-size: 12px;
+    color: black;
     font-weight: bold;
 }
+
+.prodName {
+    color: black;
+    font-weight: bold;
+    padding: 0px 5px 0px 5px;
+}
+
+.prodCate {
+    color: black;
+    padding: 0px 5px 0px 5px;
+}
+
+.prodSale {
+    font-size: small;
+    color: dimgray;
+    padding: 0px 5px 0px 5px;
+}
+
+.search-section {
+    text-align: center;
+}
+
+    .search-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
 .search-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
-.search-input {
+#search-input {
     width: 500px;
     padding: 10px;
-    border: 1px solid #808080;
+    border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
 }
 
 .search-button {
     padding: 10px 20px;
-    background-color: brown;
+    background-color: #333;
+    color: #fff;
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
@@ -59,47 +132,23 @@
     text-align: center;
 }
 
-#searchProd h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: brown;
+.product-list {
+    text-align: center;
 }
 
-featureProd {
-    text-align: left;
-}
+    .product-list h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-.feature-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-}
-
-
-.fproduct-item { /*hien thi dang slider*/
-    width: 166px;
-    max-height: 400px;
-    margin: 10px;
-    gap: 5px;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-}
-
-.fproduct-iten ing {
-    padding: 5px;
-    max-height: 160px;
-    vertical-align: central;
-    background-color: transparent;
-}
-/*Style c?a LIST PRODUCT */
 .listProduct {
     text-align: left;
 }
 
 .list-container {
-    List-style-type: none;
+    list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 0;
     margin: 0;
@@ -109,55 +158,35 @@ featureProd {
     max-height: 500px;
 }
 
-.lproduct-iten ing {
-    /*padding: 5px;*/
-    max-height: 120px; /* ?i?u ch?nh theo ?? r?ng m�n h�nh */
-}
+    .lproduct-item img {
+        /*padding: 5px;*/
+        max-height: 120px; /* điều chỉnh theo độ rộng màn hình*/
+    }
 
 .detailproduct-item {
-    width: 156px;
+    width: 150px; /* điều chỉnh theo độ màn hình */
     max-height: 400px;
     margin: 10px;
-    gap: 5px;
-    flex: 0 8 auto;
-    scroll-snap-align: start;
+    gap: 5px; /*khoảng cách giữa 2 item*/
+    flex: 0 0 auto; /* để các sản phẩm không co giãn*/
+    scroll-snap-align: start; /*để các sản phẩm dừng lại ở đầu khi cuộn*/
 }
 
-.detailproduct-iten ing {
-    /* padding: 5px;*/
-    max-height: 180px;
-}
-/*c�c thu?c t�nh chung c?a FEATURE v� NEW s?n ph?m*/
-.fproduct-item, lproduct-item, detailproduct-item {
-    border: 1px groove #808089;
+    .detailproduct-item img {
+        /*padding : 5px; */
+        max-height: 100px; /* điều chỉnh theo độ rộng màn hình */
+    }
+
+/*các thuộc tính chung của FEATURE và NEW sản phẩm*/
+
+.fproduct-item, .lproduct-item, .detailproduct-item {
+    border: 1px groove #808080;
     border-radius: 10px;
 }
 
-.featureProd h2, listProduct h2 {
+.featureProd h2, .listProduct h2 {
     font-size: 2em;
     margin-bottom: 20px;
     color: brown;
     text-align: center;
-}
-.prodPrice {
-    font-size: large;
-    color: blue;
-    font-weight: bolder;
-    padding: 10px 5px 0px 5px;
-}
-.prodName {
-    color: black;
-    font-weight: bold;
-    padding: 6px 5px 8px 5px;
-}
-    .prodCate
-{
-    color: black;
-    padding: 6px 5px 8px 5px;
-}
-
-.prodSale {
-    font-size: small;
-    color: dimgrey;
-    padding: 6px 5px 8px 5px;
 }

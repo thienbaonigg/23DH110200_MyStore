@@ -23,7 +23,7 @@ namespace MyStore.Models
         public int ProductID { get; set; }
         public int CategoryID { get; set; }
         public string ProductName { get; set; }
-        public string ProductDecription { get; set; }
+        public string ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
         public string ProductImage { get; set; }
     

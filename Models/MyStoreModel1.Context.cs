@@ -13,10 +13,10 @@ namespace MyStore.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class masterEntities : DbContext
+    public partial class HomePageEntities : DbContext
     {
-        public masterEntities()
-            : base("name=masterEntities")
+        public HomePageEntities()
+            : base("name=HomePageEntities")
         {
         }
     
@@ -30,6 +30,7 @@ namespace MyStore.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

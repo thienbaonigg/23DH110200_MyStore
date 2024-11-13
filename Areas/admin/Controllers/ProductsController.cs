@@ -10,7 +10,7 @@ using MyStore.Models;
 using MyStore.Models.ViewModel;
 using PagedList;
 
-namespace _23DH112541_MyStore.Areas.Admin.Controllers
+namespace MyStore.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
     {
@@ -26,7 +26,7 @@ namespace _23DH112541_MyStore.Areas.Admin.Controllers
             {
                 model.SearchTerm = searchTerm;
                 products = products.Where(p => p.ProductName.Contains(searchTerm) ||
-                    p.ProductDecription.Contains(searchTerm) ||
+                    p.ProductDescription.Contains(searchTerm) ||
                     p.Category.CategoryName.Contains(searchTerm));
             }
             // Tìm kiếm sản phẩm dựa trên giá tối thiểu
@@ -64,12 +64,13 @@ namespace _23DH112541_MyStore.Areas.Admin.Controllers
 
             // Đoạn code liên quan tới phân trang
             // Lấy số trang hiện tại (mặc định là trang 1 nếu không có giá trị)
-
+            int pageNumber = page ?? 1;
+            int pageSize = 2;
 
             // đóng câu lệnh này, sử dụng ToPagedList để lấy danh sách phân trang
             //model.Products = products.ToList();
 
-
+            model.Products = products.ToPagedList(pageNumber, pageSize);
             return View(model);
         }
 

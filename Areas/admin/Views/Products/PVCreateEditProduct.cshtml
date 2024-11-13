@@ -32,8 +32,8 @@
 <div class="form-group">
     <div class="control-label col-md-2">Mô tả</div>
     <div class="col-md-10">
-        @Html.TextAreaFor(model => model.ProductDecription, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.ProductDecription, "", new { @class = "text-danger" })
+        @Html.TextAreaFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
     </div>
 </div>
 
@@ -56,6 +56,6 @@
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         <input type="submit" value="Lưu" class="btn btn-primary" />
-        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-primary" })
     </div>
 </div>

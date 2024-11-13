@@ -2,33 +2,37 @@
 
 @{
     ViewBag.Title = "Customer Home Page";
-   <link rel=" stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css" />
 }
 
-<section class=" container-fluid banner">
-    <div class=" banner-container">
-        <h2> Chao mung den trang web E-commerce</h2>
-        <p>Mua sam truc tuyen voi hang ngan san pham da dang va chat luong</p>
-        <a href=" #" class=" btnBanner">Bat dau mua sam</a>
+@*PHẦN BANNER*@
+<section id="container-fluid banner">
+    <div class="banner-content">
+        <h2>Chào mừng đến trang web E-commerce</h2>
+        <p>Anime</p>
     </div>
 </section>
 
-<section class=" container-fluid searchProd">
-    <h2>Tim kiem san pham</h2>
-    @using (Html.BeginForm("Index","Home",FormMethod.Get))
+@* PHẦN TÌM KIẾM SẢN PHẨM *@
+<section class="container-fluid search-section">
+    <h2>Tìm kiếm sản phẩm</h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="form-group search-container">
+            @Html.TextBoxFor(m => m.SearchTerm, new
             {
-                <div class=" form-group searcj-container">
-                    @Html.TextBoxFor(m=>m.SearchTerm, new
-               {
-                   @class = "search-input",
-                   placeholder="Nhap ten, mo ta hoac chung loai san pham"
-               })
-                    <button type="submit" class="search-button">Tim kiem</button>
-                </div>
-            }
+           @class = "seach-input",
+           placeholder = "Nhập tên, mô tả hoặc chủng loại sản phẩm"
+       })
+            <button type="submit" class="search-button">Tìm kiếm</button>
+        </div>
+    }
 </section>
-<hr/>
-@Html.Partial("_PVFeatureProduct",Model)
+<hr />
 
+@* PHẦN SẢN PHẨM NỔI BẬT *@
+@Html.Partial("_PVFeatureProduct", Model)
 
+@* PHẦN SẢN PHẨM MỚI *@
 @Html.Partial("_PVNewProduct", Model)
+

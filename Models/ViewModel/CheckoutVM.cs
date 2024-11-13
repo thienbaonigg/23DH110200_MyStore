@@ -28,7 +28,7 @@ namespace MyStore.Models.ViewModel
         public string ShippingMethod { get; set; }
 
         [Display(Name = "Địa chỉ giao hàng")]
-        public string ShippingAddress { get; set; }
+        public string ShippingDelivery { get; set; }
 
         public string Username { get; set; }
 
