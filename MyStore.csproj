@@ -250,11 +250,11 @@
     <Content Include="Areas\admin\Views\Products\Details.cshtml" />
     <Content Include="Areas\admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Products\Index.cshtml" />
-    <Content Include="Areas\admin\Views\Products\PVCreateEditProduct.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\admin\Views\Products\PVProductList.cshtml" />
     <Content Include="Areas\admin\Views\Products\PVProdInfo.cshtml" />
+    <Content Include="Areas\admin\Views\Products\PVCreateEditProduct.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

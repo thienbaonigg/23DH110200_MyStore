@@ -34,8 +34,8 @@ namespace MyStore.Areas.admin.Controllers
             }
             return View(category);
         }
-            
-        
+
+
         // GET: admin/Categories/Create
         public ActionResult Create()
         {
@@ -112,11 +112,25 @@ namespace MyStore.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
+            // Tìm danh mục cần xoá
+            var category = db.Categories.Find(id);
+
+            // Tìm tất cả các sản phẩm thuộc danh mục này và xoá chúng
+            var products = db.Products.Where(p => p.CategoryID == id).ToList();
+            foreach (var product in products)
+            {
+                db.Products.Remove(product);
+            }
+
+            // Xoá danh mục
             db.Categories.Remove(category);
+
+            // Lưu các thay đổi
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

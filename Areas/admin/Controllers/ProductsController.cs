@@ -44,13 +44,17 @@ namespace _23DH112541_MyStore.Areas.Admin.Controllers
             //Áp dụng sắp xếp dựa trên lựa chọn của người dùng
             switch (sortOrder)
             {
-                case "name_asc": products = products.OrderBy(p => p.ProductName);
+                case "name_asc":
+                    products = products.OrderBy(p => p.ProductName);
                     break;
-                case "name_desc":products = products.OrderByDescending(p => p.ProductName);
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.ProductName);
                     break;
-                case "price_asc":products = products.OrderBy(p => p.ProductPrice);
+                case "price_asc":
+                    products = products.OrderBy(p => p.ProductPrice);
                     break;
-                case "price_desc":products = products.OrderByDescending(p => p.ProductPrice);
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.ProductPrice);
                     break;
                 default: // Mặc định sắp xếp theo tên
                     products = products.OrderBy(p => p.ProductName);
