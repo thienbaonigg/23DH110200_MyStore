@@ -14,7 +14,7 @@ namespace MyStore.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private HomePageEntities db = new HomePageEntities();
 
         // GET: Admin/Products
         public ActionResult Index(string searchTerm, decimal? minPrice, decimal? maxPrice, string sortOrder, int? page)

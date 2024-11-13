@@ -13,7 +13,7 @@ namespace MyStore.Controllers
 {
     public class HomeController : Controller
     {
-        private masterEntities db = new masterEntities();   
+        private         HomePageEntities db = new HomePageEntities();   
         public ActionResult Index( string searchTerm, int? page)
         {
             var model = new HomeProductVM();

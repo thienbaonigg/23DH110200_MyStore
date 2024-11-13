@@ -12,7 +12,7 @@ namespace MyStore.Areas.admin.Controllers
 {
     public class CategoriesController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private HomePageEntities db = new HomePageEntities();
 
         // GET: admin/Categories
         public ActionResult Index()

@@ -10,7 +10,7 @@ namespace MyStore.Controllers
 {
     public class CartController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private HomePageEntities db = new HomePageEntities();
         private CartService GetCartService()
         {
             return new CartService(Session);

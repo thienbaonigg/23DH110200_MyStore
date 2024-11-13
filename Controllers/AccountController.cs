@@ -14,7 +14,7 @@ namespace MaSV_MyStore.Controllers
 {
     public class AccountController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private HomePageEntities db = new HomePageEntities();
         // GET: Account/Register
         public ActionResult Register()
         {

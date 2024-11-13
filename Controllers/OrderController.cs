@@ -10,7 +10,7 @@ namespace MyStore.Controllers
 {
     public class OrderController : Controller
     {
-        private masterEntities db = new masterEntities();
+        private HomePageEntities db = new HomePageEntities();
         // GET: Order
         public ActionResult Index()
         {
