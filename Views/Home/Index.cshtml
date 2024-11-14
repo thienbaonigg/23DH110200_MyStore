@@ -6,33 +6,278 @@
 }
 
 @*PHẦN BANNER*@
-<section id="container-fluid banner">
-    <div class="banner-content">
-        <h2>Chào mừng đến trang web E-commerce</h2>
-        <p>Anime</p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đơn hàng của tôi - Tiki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-@* PHẦN TÌM KIẾM SẢN PHẨM *@
-<section class="container-fluid search-section">
-    <h2>Tìm kiếm sản phẩm</h2>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
-    {
-        <div class="form-group search-container">
-            @Html.TextBoxFor(m => m.SearchTerm, new
-            {
-           @class = "seach-input",
-           placeholder = "Nhập tên, mô tả hoặc chủng loại sản phẩm"
-       })
-            <button type="submit" class="search-button">Tìm kiếm</button>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background-color: #1a94ff;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .header .search-bar {
+                flex-grow: 1;
+                display: flex;
+                margin: 0 20px;
+            }
+
+                .header .search-bar input {
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 4px 0 0 4px;
+                    border: none;
+                    outline: none;
+                }
+
+                .header .search-bar button {
+                    padding: 10px;
+                    background-color: #007bff;
+                    border: none;
+                    color: #fff;
+                    border-radius: 0 4px 4px 0;
+                    cursor: pointer;
+                }
+
+            .header .icons {
+                display: flex;
+                align-items: center;
+            }
+
+                .header .icons i {
+                    font-size: 20px;
+                    margin-left: 15px;
+                    cursor: pointer;
+                }
+
+        /* Main Layout */
+        .main {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #f7f7f7;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+            .sidebar h3 {
+                color: #007bff;
+                margin-bottom: 20px;
+            }
+
+            .sidebar ul {
+                list-style: none;
+            }
+
+                .sidebar ul li {
+                    padding: 15px 10px;
+                    border-bottom: 1px solid #eaeaea;
+                }
+
+                    .sidebar ul li a {
+                        display: flex;
+                        align-items: center;
+                        color: #333;
+                        font-weight: bold;
+                    }
+
+                        .sidebar ul li a i {
+                            margin-right: 10px;
+                        }
+
+                    .sidebar ul li:hover {
+                        background-color: #e6f7ff;
+                    }
+
+        /* Content Area */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+            .tabs button {
+                flex: 1;
+                padding: 12px;
+                background-color: #f5f5f5;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+                .tabs button.active {
+                    background-color: #007bff;
+                    color: #fff;
+                }
+
+                .tabs button:hover {
+                    background-color: #007bff;
+                    color: #fff;
+                }
+
+        /* Order Section */
+        .order-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+            .order-item h4 {
+                margin-bottom: 10px;
+            }
+
+        .order-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .order-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .order-actions button {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+            .order-actions .reorder-btn {
+                background-color: #28a745;
+                color: #fff;
+            }
+
+            .order-actions .details-btn {
+                background-color: #17a2b8;
+                color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">     
+                <img src="~/Images/OIP (1).jpg" />
+            </div>
+    @* PHẦN TÌM KIẾM SẢN PHẨM *@
+            <section class="container-fluid search-section">
+                <h2>Tìm kiếm sản phẩm</h2>
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                {
+                    <div class="form-group search-container">
+                        @Html.TextBoxFor(m => m.SearchTerm, new
+                        {
+                       @class = "seach-input",
+                       placeholder = "Nhập tên, mô tả hoặc chủng loại sản phẩm"
+                   })
+                        <button type="submit" class="search-button">Tìm kiếm</button>
+                    </div>
+                }
+           </section>
+            <div class="icons">
+                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
         </div>
-    }
-</section>
-<hr />
 
-@* PHẦN SẢN PHẨM NỔI BẬT *@
-@Html.Partial("_PVFeatureProduct", Model)
+        <div class="main">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#"><i class="fas fa-user"></i> Thông tin tài khoản</a></li>
+                    <li><a href="#"><i class="fas fa-box"></i> Thông báo của tôi</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Quản lý đơn hàng</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Quản lý dối trá</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Số địa chỉ</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Thông tin thanh toán</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Đánh giá sản phẩm</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Sản phẩm bạn đã xem</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Sản phẩm yêu thích</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Nhận xét của tôi</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Chia sẽ có lời</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Hợp đồng bảo hiểm</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Mã giảm giá</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Astra của bạn 0,89 ASA</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                </ul>
+            </div>
 
-@* PHẦN SẢN PHẨM MỚI *@
-@Html.Partial("_PVNewProduct", Model)
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="active">Tất cả đơn</button>
+                    <button>Chờ thanh toán</button>
+                    <button>Đang xử lý</button>
+                    <button>Đang vận chuyển</button>
+                    <button>Đã giao</button>
+                    <button>Đã hủy</button>
+                </div>
+                @* PHẦN SẢN PHẨM NỔI BẬT *@
+                @Html.Partial("_PVFeatureProduct", Model)
+
+                @* PHẦN SẢN PHẨM MỚI *@
+                @Html.Partial("_PVNewProduct", Model)
+                <!-- Orders List -->
+              
+        </div>
+    </div>
+        </div>
+</body>
+</html>
+
+
+
+
+
 

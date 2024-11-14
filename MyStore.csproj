@@ -216,6 +216,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\OIP %281%29.jpg" />
     <Content Include="Images\OIP.jpg" />
     <Content Include="Models\MyStoreModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -288,17 +289,16 @@
     <Content Include="Views\Home\PVRelatedProduct.cshtml" />
     <Content Include="Views\Home\PVTopProduct.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Payment\Confirmation.cshtml" />
-    <Content Include="Views\Payment\Checkout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Cart\Login.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\MyOrder.cshtml" />
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />

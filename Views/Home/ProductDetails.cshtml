@@ -1,10 +1,10 @@
 ﻿
 @model MyStore.Models.ViewModel.ProductDetailsVM
-? {
-ViewBag.Title="ProductDetails";
-Layout = "~/Views/Shared/_Layout.cshtml";
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-B
+
 <head>
     <style>
         .pro {
@@ -46,8 +46,8 @@ B
         <div class="col-md-5 pro-section">
             <div>
                 <h4><strong>@Html.DisplayFor(model => model.product.ProductName)</strong></h4>
-                <p class="pro-sale">Đã bán:&nbsp; @Model.product.OrderDetails.Count</p> 
-                <p class="pro-price">@Model.product.ProductPrice.ToString("C")</p> 
+                <p class="pro-sale">Đã bán:&nbsp; @Model.product.OrderDetails.Count</p>
+                <p class="pro-price">@Model.product.ProductPrice.ToString("C")</p>
                 <p>Tủ sách:&nbsp; @Model.product.Category.CategoryName</p>
                 <hr />
                 <h5><strong>Mô tả</strong></h5>
@@ -62,20 +62,28 @@ B
             @using (Html.BeginForm("ProductDetails", "Home", FormMethod.Get))
             {
                 <h4><strong>Số lượng</strong></h4>
-                <p>@Html.TextBoxFor(model => model.quantity, new
-              { @class = "form-control", @type = "number", @min = 1 })
-             </p>
+                <p>
+                    @Html.TextBoxFor(model => model.quantity, new
+           { @class = "form-control", @type = "number", @min = 1 })
+            </p>
 
-                <h4><strong>Tạm tính</strong> </h4>
-            <p>@Model.estimatedValue.ToString("NO") ></p>
+            <h4><strong>Tạm tính</strong> </h4>
+            <p>@Model.estimatedValue.ToString("N0") </p>
             <p>
                 @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "Cart",
                     new { id = Model.product.ProductID, quantity = Model.quantity },
                     new { @class = "btn btn-info" })
-               </p>
-            }
+            </p>
+        }
             <hr />
-            </div>
-                <div">@Html.Partial("PVTopProduct", Model)</div>
+        </div>
+        <div">@Html.Partial("PVTopProduct", Model)
     </div>
+</div>
+@using (Html.BeginForm("Checkout", "Order", FormMethod.Post))
+{
+    @Html.Hidden("id", Model.product.ProductID)
+    @Html.Hidden("quantity", Model.quantity)
+    <button type="submit" class="btn btn-danger">Mua hàng ngay</button>
+}
 

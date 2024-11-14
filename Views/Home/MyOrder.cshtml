@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MyStore.Models.Order>
+@{
+    ViewBag.Title = "Đơn hàng của tôi";
+}
+
+<h2>Đơn hàng của tôi</h2>
+
+<!-- Phần Tìm kiếm đơn hàng -->
+<div class="search-order">
+    <input type="text" id="searchOrder" placeholder="Tìm theo mã đơn hàng hoặc tên sản phẩm" />
+    <button onclick="searchOrder()">Tìm kiếm</button>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <p>BẠN CHƯA CÓ ĐƠN HÀNG NÀO. HÃY <a href="@Url.Action("Index", "Home")">ĐẶT ĐƠN NGAY</a>.</p>
+}
+else
+{
+    <!-- Tabs cho các trạng thái đơn hàng -->
+    <ul class="nav nav-tabs" id="orderTabs">
+        <li class="active"><a href="#allOrders" data-toggle="tab">Tất cả đơn</a></li>
+        <li><a href="#pending" data-toggle="tab">Chờ thanh toán</a></li>
+        <li><a href="#processing" data-toggle="tab">Đang xử lý</a></li>
+        <li><a href="#shipping" data-toggle="tab">Đang vận chuyển</a></li>
+        <li><a href="#delivered" data-toggle="tab">Đã giao</a></li>
+        <li><a href="#canceled" data-toggle="tab">Đã hủy</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <!-- Tab Tất cả đơn -->
+        <div id="allOrders" class="tab-pane fade in active">
+            @foreach (var order in Model)
+            {
+                @Html.Partial("_OrderItem", order)
+            }
+        </div>
+
+        <!-- Các tab khác -->
+        
+        <div id="processing" class="tab-pane fade">
+            @foreach (var order in Model.Where(o => o.PaymentStatus == "Đang xử lý").Take(2))
+            {
+                @Html.Partial("_OrderItem", order)
+            }
+            <a href="@Url.Action("OrdersByStatus", new { status = "Đang xử lý" })">Xem thêm</a>
+        </div>
+
+        <div id="shipping" class="tab-pane fade">
+            @foreach (var order in Model.Where(o => o.PaymentStatus == "Đang vận chuyển").Take(2))
+            {
+                @Html.Partial("_OrderItem", order)
+            }
+            <a href="@Url.Action("OrdersByStatus", new { status = "Đang vận chuyển" })">Xem thêm</a>
+        </div>
+
+        <div id="delivered" class="tab-pane fade">
+            @foreach (var order in Model.Where(o => o.PaymentStatus == "Đã giao").Take(2))
+            {
+                @Html.Partial("_OrderItem", order)
+            }
+            <a href="@Url.Action("OrdersByStatus", new { status = "Đã giao" })">Xem thêm</a>
+        </div>
+
+        <div id="canceled" class="tab-pane fade">
+            @foreach (var order in Model.Where(o => o.PaymentStatus == "Đã hủy").Take(2))
+            {
+                @Html.Partial("_OrderItem", order)
+            }
+            <a href="@Url.Action("OrdersByStatus", new { status = "Đã hủy" })">Xem thêm</a>
+        </div>
+    </div>
+}

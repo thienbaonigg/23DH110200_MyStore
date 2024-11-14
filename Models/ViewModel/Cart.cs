@@ -13,7 +13,7 @@ namespace MyStore.Models.ViewModel
             decimal unitPrice, int quantity, string category)
         {
             var existingItem = items.FirstOrDefault(i => i.ProductID == productId);
-            if (existingItem != null)
+            if (existingItem == null)
             {
                 items.Add(new CartItem
                 {

@@ -23,14 +23,30 @@ namespace MyStore.Controllers
         public ActionResult AddToCart(int id, int quantity = 1)
         {
             var product = db.Products.Find(id);
-            if (product == null)
+            if (product != null)
             {
                 var cartService = GetCartService();
-                cartService.GetCart().AddItem(product.ProductID, product.ProductImage,
-                    product.ProductName, product.ProductPrice, quantity, product.Category.CategoryName);
+                var categoryName = product.Category != null ? product.Category.CategoryName : "Unknown";
+
+                // Thêm sản phẩm vào giỏ hàng
+                cartService.GetCart().AddItem(
+                    product.ProductID,
+                    product.ProductImage,
+                    product.ProductName,
+                    product.ProductPrice,
+                    quantity,
+                    categoryName
+                );
+
+                TempData["Message"] = $"{product.ProductName} đã được thêm vào giỏ hàng.";
+            }
+            else
+            {
+                TempData["Error"] = "Không tìm thấy sản phẩm.";
             }
             return RedirectToAction("Index");
         }
+
         public ActionResult RemoveFromCart(int id)
         {
             var cartService = GetCartService();

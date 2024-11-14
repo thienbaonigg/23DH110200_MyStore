@@ -51,15 +51,15 @@
 
     <h3>>Thông tin giao hàng</h3>
     <div class="form-group">
-        @Html.LabelFor(n => n.ShippingAddress, new { @class = "control-label col-md-2" })
+        @Html.LabelFor(n => n.ShippingMethod, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(n => n.ShippingAddress, new
+            @Html.TextBoxFor(n => n.ShippingMethod, new
        {
            @class = "form-control",
            @readonly = "readonly",
            @id = "shippingAddress"
        })
-            @Html.ValidationMessageFor(n => n.ShippingAddress)
+            @Html.ValidationMessageFor(n => n.ShippingMethod)
             <button type="button" class="btn btn-link" onclick="enableAddressEdit()">Chỉnh sửa</button>
         </div>
     </div>
